@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CARTELIER — Curated Event Experiences</title>
-<meta name="description" content="Cartelier — curated event experiences. Demnächst. Trag dich ein und sei dabei, sobald wir starten." />
+<meta name="description" content="Cartelier — curated event experiences. Mobile Genuss-Carts für Hochzeiten, Firmenanlässe & private Feiern. Demnächst." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,6 @@
     min-height:100svh; display:flex; flex-direction:column;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
   }
-  /* Hero background: image if present, elegant green wash as fallback */
   body::before{
     content:""; position:fixed; inset:0; z-index:-2;
     background:
@@ -32,7 +31,6 @@
       url('hero.jpg') center/cover no-repeat,
       var(--green-900);
   }
-  /* subtle vignette */
   body::after{
     content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
     background:radial-gradient(130% 100% at 50% 50%, transparent 55%, rgba(0,0,0,.45));
@@ -64,11 +62,14 @@
   .divider .line{flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent)}
   .divider .dot{width:6px; height:6px; transform:rotate(45deg); background:var(--gold)}
 
-  .intro{font-family:var(--serif); font-weight:300; font-size:clamp(1.1rem,2.6vw,1.45rem);
-         line-height:1.6; color:var(--cream); max-width:30rem; opacity:0; animation:rise 1s .8s forwards}
+  .whatwedo{font-family:var(--serif); font-weight:400; font-size:clamp(1.15rem,2.7vw,1.5rem);
+            line-height:1.55; color:var(--cream); max-width:32rem; opacity:0; animation:rise 1s .8s forwards}
+  .intro{font-family:var(--sans); font-weight:300; font-size:clamp(.85rem,1.9vw,1rem);
+         letter-spacing:.04em; line-height:1.7; color:var(--cream-dim); max-width:26rem; margin-top:1rem;
+         opacity:0; animation:rise 1s .9s forwards}
 
   form{width:100%; max-width:24rem; margin:2.4rem auto 0; display:flex; flex-direction:column; gap:1.1rem;
-       opacity:0; animation:rise 1s .95s forwards}
+       opacity:0; animation:rise 1s 1s forwards}
   .field{position:relative}
   .field input{
     width:100%; background:transparent; border:none; border-bottom:1px solid rgba(198,166,100,.4);
@@ -93,15 +94,25 @@
 
   .hp{position:absolute; left:-9999px; opacity:0; height:0; width:0}
 
-  footer{padding:1.8rem 1.5rem 2.4rem; text-align:center; font-size:.72rem; letter-spacing:.14em;
-         color:var(--cream-dim); line-height:2; opacity:0; animation:rise 1s 1.15s forwards}
+  .ig-wrap{margin-top:2.4rem; display:flex; flex-direction:column; align-items:center; gap:.9rem;
+           opacity:0; animation:rise 1s 1.15s forwards}
+  .ig-lead{font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--cream-dim)}
+  .ig-btn{display:inline-flex; align-items:center; gap:.6rem; text-decoration:none;
+          border:1px solid var(--gold); color:var(--gold-soft); background:transparent;
+          font-family:var(--sans); font-weight:500; letter-spacing:.18em; text-transform:uppercase; font-size:.74rem;
+          padding:.85rem 1.6rem; border-radius:999px; transition:background .3s,color .3s,transform .25s}
+  .ig-btn:hover{background:var(--gold); color:var(--green-900); transform:translateY(-2px)}
+  .ig-btn svg{width:17px; height:17px; fill:currentColor; flex:none}
+
+  footer{padding:2.2rem 1.5rem 2.6rem; text-align:center; font-size:.72rem; letter-spacing:.14em;
+         color:var(--cream-dim); line-height:2; opacity:0; animation:rise 1s 1.35s forwards}
   footer a{color:var(--cream-dim); text-decoration:none; transition:color .3s}
   footer a:hover{color:var(--gold)}
   footer .sep{opacity:.4; margin:0 .5rem}
 
   @keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:translateY(0)}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important}
-    .eyebrow,.wordmark,.tagline,.divider,.intro,form,footer{opacity:1!important}}
+    .eyebrow,.wordmark,.tagline,.divider,.whatwedo,.intro,form,.ig-wrap,footer{opacity:1!important}}
 </style>
 </head>
 <body>
@@ -120,7 +131,8 @@
 
     <div class="divider"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
 
-    <p class="intro" data-i18n="intro">Etwas Aussergewöhnliches entsteht. Sei unter den Ersten, die erfahren, wann wir eröffnen.</p>
+    <p class="whatwedo" data-i18n="whatwedo">Mobile Genuss-Carts für Hochzeiten, Firmenanlässe & private Feiern — kuratiert und stilvoll inszeniert.</p>
+    <p class="intro" data-i18n="intro">Bald eröffnen wir. Sei unter den Ersten, die es erfahren.</p>
 
     <form id="notify-form" autocomplete="on">
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
@@ -137,6 +149,14 @@
       <button type="submit" class="submit" data-i18n="button">Benachrichtige mich</button>
       <p class="msg" id="form-msg"></p>
     </form>
+
+    <div class="ig-wrap">
+      <span class="ig-lead" data-i18n="iglead">Schon gespannt?</span>
+      <a class="ig-btn" href="https://instagram.com/cartelierswitzerland" target="_blank" rel="noopener" aria-label="Cartelier auf Instagram folgen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.47 1.39 2.13.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.8-.3 1.47-.72 2.13-1.38.66-.66 1.08-1.33 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.8-.72-1.47-1.38-2.13-.66-.66-1.33-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg>
+        <span data-i18n="igbtn">Auf Instagram folgen</span>
+      </a>
+    </div>
   </main>
 
   <footer>
@@ -152,18 +172,19 @@
   </footer>
 
 <script>
-  /* ===== 1. HIER DEINEN WEB3FORMS ACCESS KEY EINTRAGEN ===== */
-  /* Kostenlos auf https://web3forms.com mit events@cartelierswitzerland.com erstellen, */
-  /* damit alle Anmeldungen an dieses Postfach gehen. Dann hier einsetzen: */
+  /* ===== WEB3FORMS ACCESS KEY ===== */
   const WEB3FORMS_ACCESS_KEY = "ce2a8e54-870a-421a-906a-9d5f539251b0";
-  /* ========================================================= */
+  /* ================================ */
 
   const i18n = {
     de:{
       eyebrow:"Demnächst",
-      intro:"Etwas Aussergewöhnliches entsteht. Sei unter den Ersten, die erfahren, wann wir eröffnen.",
+      whatwedo:"Mobile Genuss-Carts für Hochzeiten, Firmenanlässe & private Feiern — kuratiert und stilvoll inszeniert.",
+      intro:"Bald eröffnen wir. Sei unter den Ersten, die es erfahren.",
       name:"Name", email:"E-Mail-Adresse", phone:"Telefon", optional:"Optional",
       button:"Benachrichtige mich",
+      iglead:"Schon gespannt?",
+      igbtn:"Auf Instagram folgen",
       copyright:"© 2026 Cartelier Switzerland · Alle Rechte vorbehalten",
       sending:"Wird gesendet …",
       success:"Danke — wir melden uns, sobald es losgeht.",
@@ -172,9 +193,12 @@
     },
     en:{
       eyebrow:"Coming Soon",
-      intro:"Something extraordinary is in the making. Be among the first to know when we open.",
+      whatwedo:"Mobile gourmet carts for weddings, corporate events & private celebrations — thoughtfully curated, beautifully staged.",
+      intro:"We're opening soon. Be among the first to know.",
       name:"Name", email:"Email address", phone:"Phone", optional:"Optional",
       button:"Notify me",
+      iglead:"Curious already?",
+      igbtn:"Follow us on Instagram",
       copyright:"© 2026 Cartelier Switzerland · All rights reserved",
       sending:"Sending …",
       success:"Thank you — we'll be in touch the moment we launch.",
