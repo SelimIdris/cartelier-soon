@@ -246,8 +246,8 @@
       });
       const data=await r.json();
       if(data.success){ form.reset(); msg.textContent=i18n[lang].success; }
-      else { msg.textContent=i18n[lang].errSend; msg.classList.add('error'); }
-    }catch(err){ msg.textContent=i18n[lang].errSend; msg.classList.add('error'); }
+      else { msg.textContent="Web3Forms: "+((data&&data.message)?data.message:"unbekannter Fehler"); msg.classList.add('error'); }
+    }catch(err){ msg.textContent="Netzwerk/Fehler: "+((err&&err.message)?err.message:"unbekannt"); msg.classList.add('error'); }
     btn.disabled=false;
   });
 </script>
